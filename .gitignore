@@ -1,0 +1,11 @@
+### Godot ###
+.godot/
+build/
+lib/
+
+### Native Libs ###
+*.so
+*.dll
+
+### VS Code ###
+.vscode/
