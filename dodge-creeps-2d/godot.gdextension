@@ -1,0 +1,12 @@
+[configuration]
+
+entry_symbol = "godot_v_init"
+compatibility_minimum = "4.7"
+
+[libraries]
+
+linux.debug.x86_64 = "res://lib/libgodotv.so"
+linux.release.x86_64 = "res://lib/libgodotv.so"
+linux.editor.x86_64 = "res://lib/libgodotv.so"
+linux.editor.debug.x86_64 = "res://lib/libgodotv.so"
+linux.editor.release.x86_64 = "res://lib/libgodotv.so"

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b5bvmow2ae6xf"]
+
+[ext_resource type="Script" uid="uid://mcmnh5hu0sek" path="res://script/scene/main.v" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://co28txladd75s" path="res://node/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" uid="uid://7uqxq4agi60e" path="res://node/hud.tscn" id="4_hud"]
+[ext_resource type="AudioStream" uid="uid://d28yjoyos0fhu" path="res://asset/sound/house_in_a_forest_loop.ogg" id="5_music"]
+[ext_resource type="AudioStream" uid="uid://d10uoarj738s6" path="res://asset/sound/gameover.wav" id="6_death"]
+
+[sub_resource type="Curve2D" id="Curve2D_path"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Main" type="Node" unique_id=132994677]
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=73030833]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.219608, 0.372549, 0.380392, 1)
+
+[node name="Player" parent="." unique_id=333416622 instance=ExtResource("3_player")]
+
+[node name="MobTimer" type="Timer" parent="." unique_id=2057350370]
+wait_time = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=1133033096]
+
+[node name="StartTimer" type="Timer" parent="." unique_id=1223700158]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="." unique_id=474749034]
+position = Vector2(240, 450)
+
+[node name="MobPath" type="Path2D" parent="." unique_id=834932324]
+curve = SubResource("Curve2D_path")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" unique_id=1368087328]
+
+[node name="HUD" parent="." unique_id=809904348 instance=ExtResource("4_hud")]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1517574543]
+stream = ExtResource("5_music")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=1346121417]
+stream = ExtResource("6_death")
+
+[connection signal="timeout" from="MobTimer" to="." method="on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="on_start_timer_timeout"]

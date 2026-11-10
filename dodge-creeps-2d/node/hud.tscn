@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://7uqxq4agi60e"]
+
+[node name="HUD" type="CanvasLayer" unique_id=513539129]
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=247888569]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 78.0
+grow_horizontal = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="." unique_id=148604337]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dodge the
+Creeps"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="." unique_id=335723594]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -200.0
+offset_right = 90.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1689363522]
+one_shot = true
